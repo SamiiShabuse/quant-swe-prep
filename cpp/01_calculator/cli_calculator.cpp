@@ -14,7 +14,7 @@ double add(double a, double b) {
     return a + b;
 }
 
-?/**
+/**
  * Subtracts the second number from the first.
  * 
  * @param a First number
@@ -52,6 +52,18 @@ double divide(double a, double b) {
     return a / b;
 }
 
+
+/**
+ * Prints the question prompt for the calculator.
+ * 
+ * @param None
+ * @return void
+ */
+void printQuestion() {
+    cout << "Simple Quant Preparation Calculator\n";
+    cout << "Enter an expression (e.g., 3 + 4): ";
+}
+
 /**
  * Entry point for the CLI Calculator program.
  *
@@ -67,11 +79,7 @@ int main() {
     char operation;
     double result;
 
-    cout << "Simple Quant Preparation Calculator";
-    cout << "Enter an expression (e.g., 3 + 4): ";
-    
-    // Input format: num1 operation num2
-    // Example: 3 + 4
+    printQuestion();
     cin >> num1 >> operation >> num2;
 
     
