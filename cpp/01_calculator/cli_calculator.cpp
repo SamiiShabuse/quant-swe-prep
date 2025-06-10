@@ -64,6 +64,11 @@ void printQuestion() {
     cout << "Enter an expression (e.g., 3 + 4): ";
 }
 
+
+void takeInput(double &num1, char &operation, double &num2) {
+    cin >> num1 >> operation >> num2;
+}
+
 /**
  * Entry point for the CLI Calculator program.
  *
@@ -80,9 +85,8 @@ int main() {
     double result;
 
     printQuestion();
-    cin >> num1 >> operation >> num2;
+    takeInput(num1, operation, num2);
 
-    
     switch(operation) {
         case '+': result = add(num1, num2); break;
         case '-': result = subtract(num1, num2); break;
