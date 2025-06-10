@@ -5,8 +5,8 @@ A step-by-step plan to evolve your basic calculator into a full-featured C++ lea
 ---
 
 ### ✅ Stage 1: Basic Loop & Exit
-- [ ] Wrap calculator in a `while (true)` loop
-- [ ] Allow user to type `exit` to quit
+- [x] Wrap calculator in a `while (true)` loop
+- [x] Allow user to type `exit` to quit
 - [ ] Gracefully handle bad input
 
 ---

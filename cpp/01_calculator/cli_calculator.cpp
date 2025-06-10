@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <sstream>
 using namespace std;
 
 
@@ -62,6 +63,7 @@ double divide(double a, double b) {
 void printQuestion() {
     cout << "Simple Quant Preparation Calculator\n";
     cout << "Enter an expression (e.g., 3 + 4): ";
+    cout << "To exit, type 'exit' or 'quit'.\n";
 }
 
 /**
@@ -73,7 +75,19 @@ void printQuestion() {
  * @return void
  */
 void takeInput(double &num1, char &operation, double &num2) {
-    cin >> num1 >> operation >> num2;
+    std::string line;
+    std::getline(std::cin >> std::ws, line); // Read the entire line including spaces
+
+    if (line == "exit" || line == "quit") {
+        std::cout << "Exiting the calculator. Goodbye!" << std::endl;
+        exit(0); // Exit the program
+    }
+
+    std::istringstream iss(line);
+    if (!(iss >> num1 >> operation >> num2)) {
+        std::cerr << "Error: Invalid input format. Please enter in the format 'num1 operation num2'.\n";
+        exit(1); // Exit with error code
+    }
 }
 
 
@@ -108,15 +122,28 @@ double performOperation(double num1, char operation, double num2) {
  * @return Exit code (0 on success, 1 on invalid input)
  */
 int main() {
-    double num1, num2;
-    char operation;
-    double result;
+    while(true) {
+        double num1, num2;
+        char operation;
+        double result;
 
-    printQuestion();
-    takeInput(num1, operation, num2);
+        printQuestion();
+        takeInput(num1, operation, num2);
 
-    result = performOperation(num1, operation, num2);
+    
+        result = performOperation(num1, operation, num2);
 
-    cout << "Result: " << result << endl;
-    return 0; // Exit successfully
+
+        cout << "Result: " << result << endl;
+
+        std::cout << "Do you want to perform another calculation? (y/n): ";
+        char choice;
+        std::cin >> choice;
+        if (choice != 'y' && choice != 'Y') {
+            std::cout << "Exiting the calculator. Goodbye!" << std::endl;
+            break; // Exit the loop and terminate the program
+        }
+
+        return 0; // Exit successfully
+    }
 }
