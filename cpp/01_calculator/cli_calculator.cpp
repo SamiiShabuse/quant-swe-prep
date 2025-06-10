@@ -2,19 +2,48 @@
 #include <limits>
 using namespace std;
 
+
+/**
+ * Adds two numbers.
+ * 
+ * @param a First number
+ * @param b Second number
+ * @return The sum of a and b
+ */
 double add(double a, double b) {
     return a + b;
 }
 
+?/**
+ * Subtracts the second number from the first.
+ * 
+ * @param a First number
+ * @param b Second number
+ * @return The result of a - b
+ */
 double subtract(double a, double b) {
     return a - b;
 }
 
+/**
+ * Multiplies two numbers.
+ * 
+ * @param a First number
+ * @param b Second number
+ * @return The product of a and b
+ */
 double multiply(double a, double b) {
     return a * b;
 
 }
 
+/**
+ * Divides the first number by the second.
+ * 
+ * @param a First number
+ * @param b Second number
+ * @return The result of a / b, or NaN if b is zero
+ */
 double divide(double a, double b) {
     if (b == 0) {
         cout << "Error: Division by zero is not allowed." << endl;
@@ -23,6 +52,16 @@ double divide(double a, double b) {
     return a / b;
 }
 
+/**
+ * Entry point for the CLI Calculator program.
+ *
+ * Prompts the user for an arithmetic expression (e.g. "3 + 5"),
+ * performs the calculation, and outputs the result.
+ *
+ * Handles basic error checking and supports +, -, *, and / operations.
+ *
+ * @return Exit code (0 on success, 1 on invalid input)
+ */
 int main() {
     double num1, num2;
     char operation;
