@@ -76,6 +76,27 @@ void takeInput(double &num1, char &operation, double &num2) {
     cin >> num1 >> operation >> num2;
 }
 
+
+/**
+ * Performs the specified arithmetic operation on two numbers.
+ * 
+ * @param num1 First number
+ * @param operation Character representing the operation (+, -, *, /)
+ * @param num2 Second number
+ * @return The result of the operation, or NaN if the operation is invalid
+ */
+double performOperation(double num1, char operation, double num2) {
+    switch (operation) {
+        case '+': return add(num1, num2);
+        case '-': return subtract(num1, num2);
+        case '*': return multiply(num1, num2);
+        case '/': return divide(num1, num2);
+        default:
+            std::cerr << "Error: Unsupported operation '" << operation << "'\n";
+            return std::numeric_limits<double>::quiet_NaN(); // return NaN if invalid
+    }
+}
+
 /**
  * Entry point for the CLI Calculator program.
  *
@@ -94,15 +115,7 @@ int main() {
     printQuestion();
     takeInput(num1, operation, num2);
 
-    switch(operation) {
-        case '+': result = add(num1, num2); break;
-        case '-': result = subtract(num1, num2); break;
-        case '*': result = multiply(num1, num2); break;
-        case '/': result = divide(num1, num2); break;
-        default:
-            cout << "Error: Invalid operation.\n";
-            return 1; // Exit with an error code
-    }
+    result = performOperation(num1, operation, num2);
 
     cout << "Result: " << result << endl;
     return 0; // Exit successfully
