@@ -64,7 +64,14 @@ void printQuestion() {
     cout << "Enter an expression (e.g., 3 + 4): ";
 }
 
-
+/**
+ * Takes input from the user for the calculator.
+ * 
+ * @param num1 Reference to the first number
+ * @param operation Reference to the operation character (+, -, *, /)
+ * @param num2 Reference to the second number
+ * @return void
+ */
 void takeInput(double &num1, char &operation, double &num2) {
     cin >> num1 >> operation >> num2;
 }
