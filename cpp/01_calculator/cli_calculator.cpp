@@ -75,19 +75,22 @@ void printQuestion() {
  * @return void
  */
 void takeInput(double &num1, char &operation, double &num2) {
-    std::string line;
-    std::getline(std::cin >> std::ws, line); // Read the entire line including spaces
+    while (true) {
+        std::string line;
+        std::getline(std::cin >> std::ws, line); // Read the entire line including spaces
 
-    if (line == "exit" || line == "quit") {
-        std::cout << "Exiting the calculator. Goodbye!" << std::endl;
-        exit(0); // Exit the program
-    }
+        if (line == "exit" || line == "quit") {
+            std::cout << "Exiting the calculator. Goodbye!" << std::endl;
+            exit(0); // Exit the program
+        }
 
-    std::istringstream iss(line);
-    if (!(iss >> num1 >> operation >> num2)) {
-        std::cerr << "Error: Invalid input format. Please enter in the format 'num1 operation num2'.\n";
-        exit(1); // Exit with error code
-    }
+        std::istringstream iss(line);
+        if ((iss >> num1 >> operation >> num2)) {
+            break;
+        } else {
+            std::cerr << "Error: Invalid input format. Please enter in the format 'num1 operation num2'.\n";
+        }
+    }   
 }
 
 
@@ -144,6 +147,6 @@ int main() {
             break; // Exit the loop and terminate the program
         }
 
-        return 0; // Exit successfully
     }
+    return 0; // Exit successfully
 }
