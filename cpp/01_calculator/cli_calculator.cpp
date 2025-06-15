@@ -67,6 +67,20 @@ void printQuestion() {
 }
 
 /**
+ * Parses a line of input into two numbers and an operation.
+ * 
+ * @param line The input line containing the expression
+ * @param num1 Reference to the first number
+ * @param operation Reference to the operation character (+, -, *, /)
+ * @param num2 Reference to the second number
+ * @return True if parsing was successful, false otherwise
+ */
+bool parseExpression(const std::string& line, double &num1, char &operation, double &num2) {
+    std::istringstream iss(line);
+    return !!(iss >> num1 >> operation >> num2); 
+}
+
+/**
  * Takes input from the user for the calculator.
  * 
  * @param num1 Reference to the first number
@@ -85,13 +99,14 @@ void takeInput(double &num1, char &operation, double &num2) {
         }
 
         std::istringstream iss(line);
-        if ((iss >> num1 >> operation >> num2)) {
+        if (parseExpression(line, num1, operation, num2)) {
             break;
         } else {
             std::cerr << "Error: Invalid input format. Please enter in the format 'num1 operation num2'.\n";
         }
     }   
 }
+
 
 
 /**
