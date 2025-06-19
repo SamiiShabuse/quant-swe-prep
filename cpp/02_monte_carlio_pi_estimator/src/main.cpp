@@ -3,23 +3,25 @@
 #include <ctime>
 using namespace std;
 
-int main() {
-    /*
-    1. Ask the user how many random points to generate.
-    2. Use a loop to generate (x, y) values between 0 and 1. 
-    3. Count how may fall inside the circle 
-    4. Estimate and print Pi 
 
-    */
-   long long totalPoints;
-
-   cout << "Monte Carlo Pi Estimator" << endl;
-   cout << "Enter the number of random points to generate: ";
-   cin >> totalPoints;
-
-   // Just for confirmation
+/**
+ * Prompt the user for the number of random points to generate.
+ * 
+ * 
+ * @return The number of random points to generate.
+ */
+long long getTotalPoints(void) {
+    long long totalPoints;
+    cout << "Enter the number of random points to generate: ";
+    cin >> totalPoints;
     cout << "Generating " << totalPoints << " random points..." << endl;
 
+    return totalPoints;
+}
 
-   return 0;
+
+int main() {
+    long long totalPoints = getTotalPoints();
+
+    return 0;
 }
