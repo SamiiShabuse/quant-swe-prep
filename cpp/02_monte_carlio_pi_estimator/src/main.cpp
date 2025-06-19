@@ -11,5 +11,15 @@ int main() {
     4. Estimate and print Pi 
 
     */
+   long long totalPoints;
+
+   cout << "Monte Carlo Pi Estimator" << endl;
+   cout << "Enter the number of random points to generate: ";
+   cin >> totalPoints;
+
+   // Just for confirmation
+    cout << "Generating " << totalPoints << " random points..." << endl;
+
+
    return 0;
 }
